@@ -101,10 +101,10 @@ export default function DormPage() {
                             </p>
 
                             <div className="if-heroActions">
-                                <a className="if-btn if-btn--primary" href="/iletişim">
+                                <a className="if-btn if-btn--primary" href="/iletisim">
                                     İletişime Geç
                                 </a>
-                                <a className="if-btn if-btn--ghost" href="/etkinlikler">
+                                <a className="if-btn if-btn--ghost" href="/etkinliklerimiz">
                                     Etkinlikleri İncele
                                 </a>
                             </div>

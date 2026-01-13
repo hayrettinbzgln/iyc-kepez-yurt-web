@@ -8,7 +8,7 @@ import { EventsPreview } from "./EventsPage.jsx";
 export default function HomePage() {
 
     useEffect(() => {
-        document.title = "İlim Yayma Cemiyeti | Antalya Kepez Erkek Öğrenci Yurdu";
+        document.title = "İlim Yayma Cemiyeti Kepez Erkek Yurdu | Antalya Kepez";
 
         const descContent =
             "Antalya Kepez’de güvenli ve düzenli yurt yaşamı: etüt, yemek, etkinlikler ve duyurular.";
