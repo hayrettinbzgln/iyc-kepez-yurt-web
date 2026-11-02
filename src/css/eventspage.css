@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 .trips-shell {
+    min-height: 100vh;
     padding-top: 80px;
     inset: 0;
     z-index: -1;
@@ -11,11 +12,11 @@
 }
 
 .trips-page-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px 60px;
-
-
+    text-align: center;
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
 }
@@ -176,6 +177,7 @@
 @media (max-width: 600px) {
     .trips-page-container { 
         padding-top: 20px;
+        
     }
     
     .trips-shell {

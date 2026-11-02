@@ -6,6 +6,8 @@ html, body {
 }
 
 html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
     background:
             radial-gradient(900px 520px at 15% 10%, rgba(247, 114, 114, 0.30), transparent 60%),
             radial-gradient(900px 520px at 85% 0%, rgba(247, 114, 114, 0.22), transparent 55%),

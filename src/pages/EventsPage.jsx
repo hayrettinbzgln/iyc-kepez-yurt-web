@@ -220,7 +220,18 @@ function TripsPage() {
         };
     }, [lightbox.open]);
 
-    if (loading) return <div className="trips-page-container">Yükleniyor...</div>;
+    if (loading) {
+        return (
+            <div className="trips-shell">
+                <main className="trips-page">
+                    <div className="trips-page-container">
+                        <h1 className="trips-title-center">Etkinliklerimiz</h1>
+                        <p className="trips-info-text">Yükleniyor...</p>
+                    </div>
+                </main>
+            </div>
+        );
+    }
 
     return (
         <div className="trips-shell">
