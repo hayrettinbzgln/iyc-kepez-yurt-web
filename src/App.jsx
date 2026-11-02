@@ -10,6 +10,7 @@ import ContactPage from "./pages/ContactPage.jsx";
 import Footer from "./pages/Footer.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import AnnouncementsPage from "./pages/AnnouncementsPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import "./css/appShell.css";
 
 function ScrollToTop() {
@@ -45,6 +46,7 @@ function App() {
                         <Route path="iletisim" element={<ContactPage />} />
                         <Route path="admin" element={<AdminPage />} />
                         <Route path="duyurular" element={<AnnouncementsPage />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </main>
                 <Footer />

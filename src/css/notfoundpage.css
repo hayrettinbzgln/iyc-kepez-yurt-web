@@ -1,0 +1,41 @@
+.notfound-page {
+    min-height: calc(100vh - 260px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+}
+
+.notfound-card {
+    width: 100%;
+    max-width: 560px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+}
+
+.notfound-card .if-badge {
+    align-self: center;
+}
+
+.notfound-title {
+    margin: 0;
+    color: var(--if-text);
+}
+
+.notfound-text {
+    max-width: 440px;
+}
+
+.notfound-actions {
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .notfound-card {
+        padding: 32px 20px;
+    }
+}
