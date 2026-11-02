@@ -35,27 +35,56 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 const app = express();
 const PORT = process.env.PORT || 5174;
 
-app.use(cors());
+const DEFAULT_CORS_ORIGINS = "https://iyckepez.org.tr,http://localhost:5173";
+const CORS_ORIGINS = String(process.env.CORS_ORIGIN || DEFAULT_CORS_ORIGINS)
+    .split(",")
+    .map((o) => o.trim())
+    .filter(Boolean);
+
+app.use(cors({ origin: CORS_ORIGINS }));
 app.use(express.json());
 
-const ADMIN_USER = String(process.env.ADMIN_USER || "admin").trim();
-const ADMIN_PASS = String(process.env.ADMIN_PASS || "iyc2025").trim();
+const ADMIN_USER = String(process.env.ADMIN_USER ?? "").trim();
+const ADMIN_PASS = String(process.env.ADMIN_PASS ?? "").trim();
+
+if (!ADMIN_USER || !ADMIN_PASS) {
+    console.error("HATA: ADMIN_USER ve ADMIN_PASS ortam değişkenleri tanımlı olmalı. Sunucu başlatılmadı.");
+    process.exit(1);
+}
 
 const sessions = new Map();
 const TOKEN_TTL_MS = 12 * 60 * 60 * 1000;
 
-const loginAttempts = new Map();
-function checkLoginRateLimit(ip) {
-    const now = Date.now();
-    const item = loginAttempts.get(ip);
-    if (!item || now > item.resetAt) {
-        loginAttempts.set(ip, { count: 1, resetAt: now + 10 * 60 * 1000 });
-        return true;
-    }
-    if (item.count >= 10) return false;
-    item.count += 1;
-    return true;
+function getClientIp(req) {
+    return (
+        req.headers["x-forwarded-for"]?.toString().split(",")[0]?.trim() ||
+        req.socket.remoteAddress ||
+        "unknown"
+    );
 }
+
+function createRateLimiter({ max, windowMs }) {
+    const hits = new Map();
+    return function check(ip) {
+        const now = Date.now();
+        if (hits.size > 10000) {
+            for (const [key, value] of hits) {
+                if (now > value.resetAt) hits.delete(key);
+            }
+        }
+        const item = hits.get(ip);
+        if (!item || now > item.resetAt) {
+            hits.set(ip, { count: 1, resetAt: now + windowMs });
+            return true;
+        }
+        if (item.count >= max) return false;
+        item.count += 1;
+        return true;
+    };
+}
+
+const checkLoginRateLimit = createRateLimiter({ max: 10, windowMs: 10 * 60 * 1000 });
+const checkContactRateLimit = createRateLimiter({ max: 5, windowMs: 10 * 60 * 1000 });
 
 function requireAdmin(req, res, next) {
     const auth = req.headers.authorization || "";
@@ -84,10 +113,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.post("/api/admin/login", (req, res) => {
-    const ip =
-        req.headers["x-forwarded-for"]?.toString().split(",")[0]?.trim() ||
-        req.socket.remoteAddress ||
-        "unknown";
+    const ip = getClientIp(req);
 
     if (!checkLoginRateLimit(ip)) {
         return res.status(429).json({ error: "Çok fazla deneme. Biraz sonra tekrar dene." });
@@ -210,6 +236,10 @@ async function dbDeleteAnnouncement(id) {
 }
 
 app.post("/api/contact", async (req, res) => {
+    if (!checkContactRateLimit(getClientIp(req))) {
+        return res.status(429).json({ error: "Çok fazla istek. Biraz sonra tekrar dene." });
+    }
+
     const { name, email, message } = req.body || {};
     if (!name || !email || !message) return res.status(400).json({ error: "Eksik alan" });
 

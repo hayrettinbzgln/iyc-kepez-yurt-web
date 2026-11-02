@@ -1,4 +1,3 @@
-/* src/css/homeHeroSlider.css */
 
 .hero-slider {
     width: 100%;
@@ -13,7 +12,6 @@
     position: relative;
 }
 
-/* Swiper kartı (genel) */
 .hero-swiper {
     width: 100%;
     height: auto;
@@ -23,7 +21,6 @@
     border: 3px solid rgb(246, 211, 211);
 }
 
-/* Slide */
 .hero-slide {
     height: 420px;
     display: flex;
@@ -45,20 +42,17 @@
     transition: 0.2s;
 }
 
-/* ✅ Yazı kısmının arka planı turuncu tema */
 .hero-slide__content {
     padding: 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    /* turuncumsu tema */
     background: #fbf9f9;
 
     border-top: 1px solid rgba(249, 115, 22, 0.18);
 }
 
-/* Yazılar */
 .hero-slide__title {
     margin: 0;
     font-weight: 800;
@@ -95,14 +89,12 @@
     overflow: hidden;
 }
 
-/* Aktif slide yazıları */
 .swiper-slide-active .hero-slide__title,
 .swiper-slide-active .hero-slide__desc {
     transform: translateY(0);
     opacity: 1;
 }
 
-/* Pagination: sol alt */
 .swiper-pagination {
     position: absolute;
     left: 16px;
@@ -128,7 +120,6 @@
     border-radius: 10px;
 }
 
-/* Prev/Next: sağ alt */
 .hero-slider__buttons {
     position: absolute;
     right: 14px;
@@ -138,7 +129,6 @@
     gap: 10px;
 }
 
-/* Butonlar */
 .hero-btn {
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgb(244, 209, 209);
@@ -164,7 +154,6 @@
     transform: translateY(0px);
 }
 
-/* Mobil */
 @media (max-width: 520px) {
     .hero-swiper {
         height: 400px;

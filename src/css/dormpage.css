@@ -1,4 +1,3 @@
-/* src/css/dormpage.css (SADECE DormPage layout) */
 
 .if-dorm{
     padding-top: 25px;
@@ -22,7 +21,6 @@
     padding: 28px 0 56px;
 }
 
-/* HERO */
 .if-dorm .if-dormHero{ padding: 10px 0 22px; }
 
 .if-dorm .if-dormHero__grid{
@@ -46,7 +44,6 @@
     flex-wrap: wrap;
 }
 
-/* mini stats */
 .if-dorm .if-miniStats{
     margin-top: 25px;
     display: grid;
@@ -77,7 +74,6 @@
     font-weight: 700;
 }
 
-/* right card */
 .if-dorm .if-heroCard{
     padding: 14px;
     border-radius: 18px;
@@ -168,7 +164,6 @@
     border: 1px solid rgba(255, 77, 134, 0.22);
 }
 
-/* facilities grid */
 .if-dorm .if-twoCol{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -213,7 +208,6 @@
     box-shadow: 0 0 0 4px rgba(255, 77, 134, 0.12);
 }
 
-/* location */
 .if-dorm .if-locationGrid{
     padding-top: 25px;
     grid-template-columns: 1.2fr 0.8fr;
@@ -223,7 +217,6 @@
 
 .if-dorm .if-locationCard{ padding: 16px; }
 
-/* MiniMap kartı: tek başına durunca tüm satırı kaplasın ve içi tam dolsun */
 .if-dorm .if-mapCard{
     padding: 0;
     grid-column: 1 / -1;
@@ -231,13 +224,11 @@
     overflow: hidden;
 }
 
-/* DormPage içindeki inline maxWidth:360 wrapper'ını ez */
 .if-dorm .if-mapCard > div{
     max-width: none !important;
     width: 100%;
 }
 
-/* Eğer dışta <h3>Harita</h3> varsa düzgün dursun */
 .if-dorm .if-mapCard > h3{
     margin: 0;
     padding: 16px 16px 10px;
@@ -284,7 +275,6 @@
     border: 1px solid rgba(255, 77, 134, 0.18);
 }
 
-/* HARİTA ALTINDA ORTALANMIŞ "YOL TARİFİ" BUTONU */
 .if-maplink {
     margin: 22px auto 0;
     display: flex;
@@ -314,7 +304,6 @@
     opacity: 0.95;
 }
 
-/* gallery */
 .if-dorm .if-gallery{
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -369,7 +358,6 @@
     border: 1px solid rgba(255,255,255,0.35);
 }
 
-/* lightbox */
 .if-dorm .if-lightbox{
     position: fixed;
     inset: 0;
@@ -411,7 +399,6 @@
     display: block;
 }
 
-/* FAQ + CTA */
 .if-dorm .if-twoCol--faq{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .if-dorm .if-faqQ{
@@ -447,7 +434,6 @@
     justify-content: flex-end;
 }
 
-/* responsive */
 @media (max-width: 980px){
     .if-dorm .if-dormHero__grid{ grid-template-columns: 1fr; }
     .if-dorm .if-miniStats{ grid-template-columns: 1fr; max-width: 100%; }

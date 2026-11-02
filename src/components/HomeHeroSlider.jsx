@@ -41,8 +41,10 @@ export default function HomeHeroSlider() {
         if (!swiperInstance) return;
         if (!prevRef.current || !nextRef.current) return;
 
+        /* eslint-disable react-hooks/immutability */
         swiperInstance.params.navigation.prevEl = prevRef.current;
         swiperInstance.params.navigation.nextEl = nextRef.current;
+        /* eslint-enable react-hooks/immutability */
         swiperInstance.navigation.destroy();
         swiperInstance.navigation.init();
         swiperInstance.navigation.update();

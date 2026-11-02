@@ -24,7 +24,6 @@ function Navbar() {
                     </div>
 
                 </div>
-                {/* Hamburger Menu Button */}
                 <div className="navbar-toggle" onClick={toggleMenu}>
                     <span className="bar"></span>
                     <span className="bar"></span>
