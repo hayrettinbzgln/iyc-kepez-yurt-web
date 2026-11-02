@@ -69,7 +69,7 @@ export default function DormPage() {
             { src: "/iyc-ortak4.jpg", alt: "Ortak alan 4" },
             { src: "/iyc-kamelya.jpg", alt: "Kamelya" },
             { src: "/iyc-yemekhane.jpg", alt: "Yemekhane" },
-            { src: "/iyc-yönetim.jpg", alt: "Yönetim Odası" },
+            { src: "/iyc-yonetim.jpg", alt: "Yönetim Odası" },
             { src: "/iyc-koridor.jpg", alt: "Koridor" },
             { src: "/iyc-mescid.jpg", alt: "Mescid" },
         ],
