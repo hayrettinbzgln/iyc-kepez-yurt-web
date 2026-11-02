@@ -173,7 +173,8 @@ function AdminPage() {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` },
             });
-        } catch (_) {}
+        // eslint-disable-next-line no-empty
+        } catch {}
         sessionStorage.removeItem("admin_token");
         setToken("");
         setLogin({ username: "", password: "" });
