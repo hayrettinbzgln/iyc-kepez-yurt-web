@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 .trips-shell {
-    padding-top: 80px; /* navbar yüksekliği kadar üst boşluk (80px) */
+    padding-top: 80px;
     inset: 0;
     z-index: -1;
     background:
@@ -15,13 +15,11 @@
     margin: 0 auto;
     padding: 40px 20px 60px;
 
-    /* ✅ Navbar fixed ise kaymasın */
 
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
 }
 
-/* Başlık */
 .trips-title-center {
     font-size: 30px;
     text-align: center;
@@ -30,7 +28,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Bilgi / yükleniyor metinleri */
 .trips-info-text {
     font-size: 14px;
     color: #555555;
@@ -38,7 +35,6 @@
     margin-top: 8px;
 }
 
-/* ✅ 3 kolon - fazlası alt satır */
 .trips-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -55,7 +51,6 @@
     .trips-grid { grid-template-columns: 1fr; }
 }
 
-/* Kart */
 .trip-card {
     min-width: 0;
     background: #ffffff;
@@ -68,7 +63,6 @@
     flex-direction: column;
     gap: 10px;
 
-    /* ✅ içerik ortalı */
     align-items: center;
     text-align: center;
 }
@@ -79,7 +73,6 @@
     word-break: break-word;
 }
 
-/* Gezi başlığı */
 .trip-title {
     font-size: 18px;
     margin: 0;
@@ -87,7 +80,6 @@
     font-weight: 600;
 }
 
-/* Tarih chip */
 .trip-date-chip {
     display: inline-block;
     padding: 5px 12px;
@@ -98,7 +90,6 @@
     color: #ffffff;
 }
 
-/* Görsel */
 .trip-image {
     width: 100%;
     border-radius: 18px;
@@ -107,19 +98,16 @@
     display: block;
 }
 
-/* Kapak görseli tıklanabilir hissi */
 .trip-image-clickable {
     cursor: zoom-in;
 }
 
-/* Açıklama */
 .trip-description {
     font-size: 14px;
     color: #444444;
     margin: 0;
 }
 
-/* Thumbs */
 .trip-thumbs {
     margin-top: 6px;
     display: flex;
@@ -151,7 +139,6 @@
     box-shadow: 0 0 0 4px rgba(183, 28, 28, 0.10);
 }
 
-/* Lightbox */
 .lightbox {
     position: fixed;
     inset: 0;
@@ -186,14 +173,13 @@
     font-weight: 700;
 }
 
-/* Mobilde üst padding biraz düşsün */
 @media (max-width: 600px) {
     .trips-page-container { 
         padding-top: 20px;
     }
     
     .trips-shell {
-        padding-top: 70px; /* mobilde navbar yüksekliği 70px */
+        padding-top: 70px;
     }
 }
 
@@ -235,9 +221,6 @@
     box-shadow: none;
 }
 
-/* ==========================
-   HOME PREVIEW (Etkinliklerimiz)
-   ========================== */
 .trips-preview{
     max-width: 1200px;
     margin: 0 auto;
@@ -291,7 +274,6 @@
     .trips-preview-grid{ grid-template-columns: 1fr; }
 }
 
-/* preview kartı biraz daha kompakt */
 .trip-card--preview{
     padding: 16px 18px 18px;
 }
@@ -300,7 +282,6 @@
     max-height: 170px;
 }
 
-/* açıklama clamp */
 .trip-description--clamp{
     display: -webkit-box;
     -webkit-line-clamp: 3;

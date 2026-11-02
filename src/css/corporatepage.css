@@ -20,7 +20,6 @@
     sans-serif;
 }
 
-/* ÜST KART */
 .corporate-hero {
     display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);

@@ -58,7 +58,7 @@ function AdminPage() {
     const isAuthed = !!token;
     const [login, setLogin] = useState({ username: "", password: "" });
     const [form, setForm] = useState({ title: "", date: "", description: "" });
-    const [pickedFiles, setPickedFiles] = useState([]); // File[]
+    const [pickedFiles, setPickedFiles] = useState([]);
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(false);
     const [evPageSize, setEvPageSize] = useState(6);
@@ -78,8 +78,8 @@ function AdminPage() {
     }, [previews]);
 
     const [annForm, setAnnForm] = useState({ title: "", text: "" });
-    const [annImages, setAnnImages] = useState([]); // File[]
-    const [annFile, setAnnFile] = useState(null); // File | null
+    const [annImages, setAnnImages] = useState([]);
+    const [annFile, setAnnFile] = useState(null);
     const [annList, setAnnList] = useState([]);
     const [annLoading, setAnnLoading] = useState(false);
     const [annPageSize, setAnnPageSize] = useState(6);

@@ -56,7 +56,6 @@ export default function DormPage() {
         ],
         []
     );
-    //fixed
     const gallery = useMemo(
         () => [
             { src: "/iyc-bina.jpg", alt: "Yurt dış görünüm" },
